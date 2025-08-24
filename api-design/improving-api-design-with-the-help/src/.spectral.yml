@@ -2,7 +2,6 @@ rules:
   #####################
   ## RULESET VERSION ##
   #####################
-
   ruleset-version:
     description: "RESTful API standards ruleset version 1.0.0"
     documentationUrl: "https://github.com/apiglue/talks"
@@ -12,10 +11,9 @@ rules:
     then:
       function: "falsy"
 
-  ####################
-  # RULESET METADATA #
-  ####################
-
+  #####################
+  # RULESET STANDARDS #
+  #####################
   RESTFUL-STD-1.1-NAMING-FUNDAMENTALS-API-NAME:
     severity: "error"
     message: "API name must be descriptive and only contain alphanumeric characters"

@@ -1,0 +1,346 @@
+[
+  {
+    "code": "ruleset-version",
+    "path": [],
+    "message": "RESTful API standards ruleset version 1.0.0",
+    "severity": 3,
+    "range": {
+      "start": {
+        "line": 0,
+        "character": 0
+      },
+      "end": {
+        "line": 620,
+        "character": 23
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-1.1-NAMING-FUNDAMENTALS-API-NAME",
+    "path": ["info", "title"],
+    "message": "API name must be descriptive and only contain alphanumeric characters",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 3,
+        "character": 13
+      },
+      "end": {
+        "line": 3,
+        "character": 28
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-QUERY-PARAMS",
+    "path": ["paths", "/contacts", "get", "parameters", "0", "description"],
+    "message": "Query parameters must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 38,
+        "character": 27
+      },
+      "end": {
+        "line": 38,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-QUERY-PARAMS",
+    "path": ["paths", "/contacts", "get", "parameters", "1", "description"],
+    "message": "Query parameters must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 49,
+        "character": 27
+      },
+      "end": {
+        "line": 49,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-QUERY-PARAMS",
+    "path": ["paths", "/contacts", "get", "parameters", "2", "description"],
+    "message": "Query parameters must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 61,
+        "character": 27
+      },
+      "end": {
+        "line": 61,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": ["paths", "/contacts", "get", "responses", "200", "description"],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 71,
+        "character": 27
+      },
+      "end": {
+        "line": 71,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-REQUEST-BODY",
+    "path": ["paths", "/contacts", "post", "requestBody"],
+    "message": "Request body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 106,
+        "character": 22
+      },
+      "end": {
+        "line": 111,
+        "character": 59
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": ["paths", "/contacts", "post", "responses", "201", "description"],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 118,
+        "character": 27
+      },
+      "end": {
+        "line": 118,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": [
+      "paths",
+      "/contacts/{ContactId}",
+      "get",
+      "responses",
+      "200",
+      "description"
+    ],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 154,
+        "character": 27
+      },
+      "end": {
+        "line": 154,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-REQUEST-BODY",
+    "path": ["paths", "/contacts/{ContactId}", "put", "requestBody"],
+    "message": "Request body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 183,
+        "character": 22
+      },
+      "end": {
+        "line": 188,
+        "character": 59
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": [
+      "paths",
+      "/contacts/{ContactId}",
+      "put",
+      "responses",
+      "200",
+      "description"
+    ],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 195,
+        "character": 27
+      },
+      "end": {
+        "line": 195,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": [
+      "paths",
+      "/contacts/{ContactId}",
+      "delete",
+      "responses",
+      "204",
+      "description"
+    ],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 232,
+        "character": 27
+      },
+      "end": {
+        "line": 232,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-PATH-PARAMS",
+    "path": ["paths", "/contacts/{ContactId}", "parameters", "0"],
+    "message": "Path parameters must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 243,
+        "character": 8
+      },
+      "end": {
+        "line": 249,
+        "character": 26
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.1-CONSISTENCY-FUNDAMENTALS-URI-PARAMS",
+    "path": ["paths", "/contacts/{ContactId}", "parameters", "0", "name"],
+    "message": "URI parameters must be formatted as lower camel case",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 247,
+        "character": 18
+      },
+      "end": {
+        "line": 247,
+        "character": 29
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-PATH-PARAMS",
+    "path": ["components", "parameters", "ContactId", "description"],
+    "message": "Path parameters must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 567,
+        "character": 23
+      },
+      "end": {
+        "line": 567,
+        "character": 25
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": ["components", "responses", "BadRequest", "description"],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 576,
+        "character": 23
+      },
+      "end": {
+        "line": 576,
+        "character": 25
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": ["components", "responses", "NotFound", "description"],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 586,
+        "character": 23
+      },
+      "end": {
+        "line": 586,
+        "character": 25
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": ["components", "responses", "ValidationError", "description"],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 596,
+        "character": 23
+      },
+      "end": {
+        "line": 596,
+        "character": 25
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
+    "path": ["components", "responses", "InternalServerError", "description"],
+    "message": "Response body must have a description",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 606,
+        "character": 23
+      },
+      "end": {
+        "line": 606,
+        "character": 25
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+  }
+]
