@@ -22,18 +22,26 @@ def main():
     )
 
 
+    prompt_template = utils.load_yaml_from_file("./templates/prompt-template.yaml")
+    if prompt_template is None:
+        raise ValueError("Failed to load prompt template")
+    
+    
     openapi_spec_file = utils.load_json_from_file("./specs/openapi-non-compliant.json")
-    spectral_linter_results = utils.load_json_from_file("./specs/spectral-linter-results.json")
+    if openapi_spec_file is None:
+        raise ValueError("Failed to load OpenAPI spec file")
+    
+    system_prompt = prompt_template.get("ruleset", {}).get("system_prompt")
 
+    user_prompt_ruleset = utils.load_json_from_file("./.spectral.json")
+    if user_prompt_ruleset is None:
+        raise ValueError("Failed to load spectral linter results")
 
     chat_prompt = ChatPromptTemplate.from_messages(
         [
-            (
-                "system",
-                "Please fix the following OpenAPI Specification file based on the provided linting results.",
-            ),
+            ("system","{system_prompt}"),
             ("user", "{openapi_spec_file}"),
-            ("user", "{spectral_linter_results}"),
+            ("user", "{user_prompt_ruleset}"),
         ]
     )
 
@@ -44,8 +52,9 @@ def main():
 
     try:
         results = chain.invoke({
+            "system_prompt": system_prompt,
             "openapi_spec_file": openapi_spec_file,
-            "spectral_linter_results": spectral_linter_results
+            "user_prompt_ruleset": user_prompt_ruleset
         })
         end_time = datetime.now()
         print(f"Process ended at ==> {utils.current_time()}")
@@ -59,7 +68,7 @@ def main():
         return
 
     try:
-        utils.save_result_to_file("./output/openapi-compliant-results.json",results.content)
+        utils.save_result_to_file("./output/openapi-compliant-ruleset.json",results.content)
     except Exception as e:
         print(f"Error occurred while saving results: {e}")   
 
@@ -76,4 +85,5 @@ if __name__ == "__main__":
         debugpy.listen(("0.0.0.0", 5678))
         print("Waiting for debugger attach...")
         debugpy.wait_for_client()
+    
     main()
