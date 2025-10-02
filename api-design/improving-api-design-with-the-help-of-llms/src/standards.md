@@ -36,3 +36,13 @@
   - Request bodies
   - Response bodies
   - Cookies
+
+## 2.3 Data types and validation
+
+### 2.3.1 Integer data type lower and upper limits
+
+- Integer data types must have _minimum_ and _maximum_ values defined
+
+### 2.3.2 String data type lower and upper limits
+
+- String data types must have _minLength_ and _maxLength_ defined
