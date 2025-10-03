@@ -36,18 +36,19 @@
           {
             "name": "page",
             "in": "query",
-            "description": "Page number for pagination (starts at 1).",
+            "description": "Page number for pagination (starting at 1).",
             "required": false,
             "schema": {
               "type": "integer",
               "minimum": 1,
+              "maximum": 1000,
               "default": 1
             }
           },
           {
             "name": "limit",
             "in": "query",
-            "description": "Number of items per page (max 100).",
+            "description": "Number of items per page (1-100).",
             "required": false,
             "schema": {
               "type": "integer",
@@ -59,10 +60,11 @@
           {
             "name": "search",
             "in": "query",
-            "description": "Search term to filter contacts by name or email.",
+            "description": "Search term to filter contacts (by name or email).",
             "required": false,
             "schema": {
               "type": "string",
+              "minLength": 1,
               "maxLength": 100
             }
           }
@@ -105,7 +107,7 @@
           "Contacts"
         ],
         "requestBody": {
-          "description": "Contact object to create.",
+          "description": "Data for the new contact.",
           "required": true,
           "content": {
             "application/json": {
@@ -153,7 +155,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Contact retrieved successfully.",
+            "description": "Contact details.",
             "content": {
               "application/json": {
                 "schema": {
@@ -183,7 +185,7 @@
           }
         ],
         "requestBody": {
-          "description": "Contact object to update.",
+          "description": "Updated data for the contact.",
           "required": true,
           "content": {
             "application/json": {
@@ -195,7 +197,7 @@
         },
         "responses": {
           "200": {
-            "description": "Contact updated successfully.",
+            "description": "Updated contact details.",
             "content": {
               "application/json": {
                 "schema": {
@@ -241,7 +243,12 @@
             "$ref": "#/components/responses/InternalServerError"
           }
         }
-      }
+      },
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/ContactId"
+        }
+      ]
     }
   },
   "components": {
@@ -557,16 +564,18 @@
         "name": "contactId",
         "in": "path",
         "required": true,
-        "description": "The UUID of the contact.",
+        "description": "Unique identifier of the contact (UUID).",
         "schema": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "minLength": 36,
+          "maxLength": 36
         }
       }
     },
     "responses": {
       "BadRequest": {
-        "description": "Bad request.",
+        "description": "Bad request - the request could not be understood or was missing required parameters.",
         "content": {
           "application/json": {
             "schema": {
@@ -586,7 +595,7 @@
         }
       },
       "ValidationError": {
-        "description": "Validation failed for the request.",
+        "description": "Validation failed for the request data.",
         "content": {
           "application/json": {
             "schema": {

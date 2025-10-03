@@ -2,7 +2,7 @@
   {
     "code": "ruleset-version",
     "path": [],
-    "message": "RESTful API standards ruleset version 1.0.0",
+    "message": "RESTful API standards ruleset version 1.0.0 (json version)",
     "severity": 3,
     "range": {
       "start": {
@@ -10,11 +10,11 @@
         "character": 0
       },
       "end": {
-        "line": 620,
+        "line": 579,
         "character": 23
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-1.1-NAMING-FUNDAMENTALS-API-NAME",
@@ -31,7 +31,7 @@
         "character": 28
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-QUERY-PARAMS",
@@ -40,15 +40,49 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 38,
+        "line": 36,
         "character": 27
       },
       "end": {
-        "line": 38,
+        "line": 36,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.3.1-CONSISTENCY-FUNDAMENTALS-INTEGER-MAX",
+    "path": ["paths", "/contacts", "get", "parameters", "0", "schema"],
+    "message": "Integer properties must have a maximum value",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 38,
+        "character": 21
+      },
+      "end": {
+        "line": 40,
+        "character": 26
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.3.1-CONSISTENCY-FUNDAMENTALS-INTEGER-MIN",
+    "path": ["paths", "/contacts", "get", "parameters", "0", "schema"],
+    "message": "Integer properties must have a minimum value",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 38,
+        "character": 21
+      },
+      "end": {
+        "line": 40,
+        "character": 26
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-QUERY-PARAMS",
@@ -57,15 +91,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 49,
+        "line": 46,
         "character": 27
       },
       "end": {
-        "line": 49,
+        "line": 46,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-QUERY-PARAMS",
@@ -74,15 +108,32 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 61,
+        "line": 58,
         "character": 27
       },
       "end": {
-        "line": 61,
+        "line": 58,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MINLENGTH",
+    "path": ["paths", "/contacts", "get", "parameters", "2", "schema"],
+    "message": "String properties must have a minLength",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 60,
+        "character": 21
+      },
+      "end": {
+        "line": 62,
+        "character": 30
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -91,15 +142,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 71,
+        "line": 68,
         "character": 27
       },
       "end": {
-        "line": 71,
+        "line": 68,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-REQUEST-BODY",
@@ -108,15 +159,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 106,
+        "line": 101,
         "character": 22
       },
       "end": {
-        "line": 111,
+        "line": 106,
         "character": 59
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -125,15 +176,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 118,
+        "line": 113,
         "character": 27
       },
       "end": {
-        "line": 118,
+        "line": 113,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -149,15 +200,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 154,
+        "line": 147,
         "character": 27
       },
       "end": {
-        "line": 154,
+        "line": 147,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-REQUEST-BODY",
@@ -166,15 +217,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 183,
+        "line": 174,
         "character": 22
       },
       "end": {
-        "line": 188,
+        "line": 179,
         "character": 59
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -190,15 +241,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 195,
+        "line": 186,
         "character": 27
       },
       "end": {
-        "line": 195,
+        "line": 186,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -214,15 +265,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 232,
+        "line": 221,
         "character": 27
       },
       "end": {
-        "line": 232,
+        "line": 221,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-PATH-PARAMS",
@@ -231,15 +282,49 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 243,
+        "line": 232,
         "character": 8
       },
       "end": {
-        "line": 249,
+        "line": 238,
         "character": 26
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MAXLENGTH",
+    "path": ["paths", "/contacts/{ContactId}", "parameters", "0", "schema"],
+    "message": "String properties must have a maxLength",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 233,
+        "character": 19
+      },
+      "end": {
+        "line": 234,
+        "character": 28
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MINLENGTH",
+    "path": ["paths", "/contacts/{ContactId}", "parameters", "0", "schema"],
+    "message": "String properties must have a minLength",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 233,
+        "character": 19
+      },
+      "end": {
+        "line": 234,
+        "character": 28
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.1-CONSISTENCY-FUNDAMENTALS-URI-PARAMS",
@@ -248,15 +333,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 247,
+        "line": 236,
         "character": 18
       },
       "end": {
-        "line": 247,
+        "line": 236,
         "character": 29
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-PATH-PARAMS",
@@ -265,15 +350,49 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 567,
+        "line": 526,
         "character": 23
       },
       "end": {
-        "line": 567,
+        "line": 526,
         "character": 25
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MAXLENGTH",
+    "path": ["components", "parameters", "ContactId", "schema"],
+    "message": "String properties must have a maxLength",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 527,
+        "character": 17
+      },
+      "end": {
+        "line": 529,
+        "character": 26
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
+  },
+  {
+    "code": "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MINLENGTH",
+    "path": ["components", "parameters", "ContactId", "schema"],
+    "message": "String properties must have a minLength",
+    "severity": 0,
+    "range": {
+      "start": {
+        "line": 527,
+        "character": 17
+      },
+      "end": {
+        "line": 529,
+        "character": 26
+      }
+    },
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -282,15 +401,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 576,
+        "line": 535,
         "character": 23
       },
       "end": {
-        "line": 576,
+        "line": 535,
         "character": 25
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -299,15 +418,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 586,
+        "line": 545,
         "character": 23
       },
       "end": {
-        "line": 586,
+        "line": 545,
         "character": 25
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -316,15 +435,15 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 596,
+        "line": 555,
         "character": 23
       },
       "end": {
-        "line": 596,
+        "line": 555,
         "character": 25
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   },
   {
     "code": "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY",
@@ -333,14 +452,14 @@
     "severity": 0,
     "range": {
       "start": {
-        "line": 606,
+        "line": 565,
         "character": 23
       },
       "end": {
-        "line": 606,
+        "line": 565,
         "character": 25
       }
     },
-    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help/src/specs/openapi-non-compliant.json"
+    "source": "/Users/marcelo/dev/github/apiglue/talks/api-design/improving-api-design-with-the-help-of-llms/src/specs/openapi-non-compliant.json"
   }
 ]

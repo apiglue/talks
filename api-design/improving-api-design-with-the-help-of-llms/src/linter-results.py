@@ -21,23 +21,25 @@ def main():
     #reasoning_effort=""
     )
 
-
+    # LOAD TEMPLATES 
     prompt_template = utils.load_yaml_from_file("./templates/prompt-template.yaml")
     if prompt_template is None:
         raise ValueError("Failed to load prompt template")
     
-    
+    # LOAD SOURCE OAS FILE
     openapi_spec_file = utils.load_json_from_file("./specs/openapi-non-compliant.json")
     if openapi_spec_file is None:
         raise ValueError("Failed to load OpenAPI spec file")
     
-    
+    # GET RESULTS PROMPT
     system_prompt = prompt_template.get("results", {}).get("system_prompt")
 
+    # LOAD SPECTRAL LINTER RESULTS
     spectral_linter_results = utils.load_json_from_file("./specs/spectral-linter-results.json")
     if spectral_linter_results is None:
         raise ValueError("Failed to load spectral linter results")
 
+    # CREATE CHAT PROMPT
     chat_prompt = ChatPromptTemplate.from_messages(
         [
             ("system","{system_prompt}"),
@@ -46,6 +48,7 @@ def main():
         ]
     )
 
+    # INVOKE CHAIN
     chain = chat_prompt | llm
 
     start_time = datetime.now()
@@ -69,6 +72,7 @@ def main():
         return
 
     try:
+        # SAVE RESULTS TO FILE
         utils.save_result_to_file("./output/openapi-compliant-results.json",results.content)
     except Exception as e:
         print(f"Error occurred while saving results: {e}")   

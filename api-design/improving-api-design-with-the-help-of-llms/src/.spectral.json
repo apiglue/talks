@@ -129,6 +129,58 @@
           "function": "truthy"
         }
       ]
+    },
+    "RESTFUL-STD-2.3.1-CONSISTENCY-FUNDAMENTALS-INTEGER-MAX": {
+      "severity": "error",
+      "message": "Integer properties must have a maximum value",
+      "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help-of-llms/src/standards.md#231-integer-data-type-lower-and-upper-limits",
+      "given": "$.paths..parameters[?(@.schema.type=='integer')].schema",
+      "type": "style",
+      "then": [
+        {
+          "field": "maximum",
+          "function": "truthy"
+        }
+      ]
+    },
+    "RESTFUL-STD-2.3.1-CONSISTENCY-FUNDAMENTALS-INTEGER-MIN": {
+      "severity": "error",
+      "message": "Integer properties must have a minimum value",
+      "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help-of-llms/src/standards.md#231-integer-data-type-lower-and-upper-limits",
+      "given": "$.paths..parameters[?(@.schema.type=='integer')].schema",
+      "type": "style",
+      "then": [
+        {
+          "field": "minimum",
+          "function": "truthy"
+        }
+      ]
+    },
+    "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MAXLENGTH": {
+      "severity": "error",
+      "message": "String properties must have a maxLength",
+      "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help-of-llms/src/standards.md#232-string-data-type-lower-and-upper-limits",
+      "given": "$.paths..parameters[?(@.schema.type=='string')].schema",
+      "type": "style",
+      "then": [
+        {
+          "field": "maxLength",
+          "function": "truthy"
+        }
+      ]
+    },
+    "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MINLENGTH": {
+      "severity": "error",
+      "message": "String properties must have a minLength",
+      "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help-of-llms/src/standards.md#232-string-data-type-lower-and-upper-limits",
+      "given": "$.paths..parameters[?(@.schema.type=='string')].schema",
+      "type": "style",
+      "then": [
+        {
+          "field": "minLength",
+          "function": "truthy"
+        }
+      ]
     }
   }
 }

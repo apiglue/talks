@@ -9,7 +9,9 @@ results:
         - message: The message describing the issue. You must use this message to understand how to fix the issue.
         - range.start: The starting line number of the issue in the OpenAPI Specification file.
         - range.end: The ending line number of the issue in the OpenAPI Specification file.
-    You job is to Modify the OpenAPI Specification file to fix the issues reported by the provided Spectral linter results.
+    You job is to:  
+        - Modify the OpenAPI Specification file to fix the issues reported by the provided Spectral linter results.
+        - Not to remove any existing content from the OpenAPI Specification file unless it is necessary to fix the issues.
     The result of your job must:
         - Ensure the output is a valid OpenAPI Specification file
         - Be a valid JSON file."
@@ -47,7 +49,9 @@ natural_language:
             - Request bodies
             - Response bodies
         - Cookies
-
+    - Data type validation
+        - Integer data type must have minimum and maximum property values defined
+        - String data type must have minimum and maximum property values defined
     Make only the required changes to bring the OpenAPI specification into full compliance with the above standards. Do not make any other modifications.
   user_prompt_spec: |
     OpenAPI Specification file to be fixed: "{openapi_spec_file}"
