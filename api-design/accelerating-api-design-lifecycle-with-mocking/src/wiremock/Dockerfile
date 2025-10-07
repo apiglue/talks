@@ -27,3 +27,5 @@ COPY __files/ /wiremock/__files/
 # Run WireMock
 ENTRYPOINT ["java", "-jar", "wiremock-standalone.jar"]
 CMD ["--port", "8081", "--verbose"]
+
+#ENTRYPOINT exec java $JAVA_OPTS @FW_OPTS -Djava.security.egd=file:/dev/./urandom -jar wiremock-standalone.jar --port 8081 --verbose --supported-proxy-encodings=gzip,deflate
