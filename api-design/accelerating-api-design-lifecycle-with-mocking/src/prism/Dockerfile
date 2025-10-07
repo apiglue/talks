@@ -14,10 +14,10 @@ RUN npm install -g @stoplight/prism-cli
 ARG OPENAPI_URL=https://petstore3.swagger.io/api/v3/openapi.json
 
 # Download the OpenAPI specification from GitHub
-RUN wget -O /tmp/openapi.json ${OPENAPI_URL}
+RUN wget -O /app/openapi.json ${OPENAPI_URL}
 
 # Expose the default Prism port
 EXPOSE 4010
 
 # Set the default command to run Prism
-CMD ["prism", "mock", "-h", "0.0.0.0", "/tmp/openapi.json"]
+CMD ["prism", "mock", "-h", "0.0.0.0", "/app/openapi.json"]
