@@ -1,0 +1,45 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "url": "/trainings",
+        "method": "GET",
+        "headers": {
+          "Accept": {
+            "contains": "application/json"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{ \"message\": \"successful match\" }"
+      }
+    },
+    {
+      "request": {
+        "url": "/trainings",
+        "method": "POST",
+        "headers": {
+          "Content-Type": {
+            "contains": "application/x-www-form-urlencoded"
+          }
+        },
+        "formParameters": {
+          "tool": {
+            "equalTo": "wiremock"
+          }
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{ \"message\": \"resource created successfully\" }"
+      }
+    }
+  ]
+}

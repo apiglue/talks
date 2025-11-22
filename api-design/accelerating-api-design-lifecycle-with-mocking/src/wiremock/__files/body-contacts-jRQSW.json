@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440000",
+      "firstName": "Marcelo",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "addresses": [
+        {
+          "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+          "street": "123 Main Street",
+          "city": "New York",
+          "state": "NY",
+          "postalCode": "10001",
+          "country": "United States",
+          "type": "string"
+        }
+      ],
+      "phoneNumbers": [
+        {
+          "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+          "number": "+1234567890",
+          "type": "mobile",
+          "isPrimary": false
+        }
+      ],
+      "createdAt": "2023-01-15T10:30:00Z",
+      "updatedAt": "2023-01-20T14:45:00Z"
+    }
+  ],
+  "pagination": { "page": 0, "limit": 0, "total": 0, "totalPages": 0 }
+}

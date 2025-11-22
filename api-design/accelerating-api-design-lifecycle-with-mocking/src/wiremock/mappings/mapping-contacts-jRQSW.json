@@ -1,0 +1,27 @@
+{
+  "id" : "00b3b5b7-0ee0-3bdf-a5ec-e48802230d4c",
+  "request" : {
+    "url" : "/contacts",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-contacts-jRQSW.json",
+    "headers" : {
+      "CF-RAY" : "99f09089c95e60a1-ORD",
+      "Server" : "cloudflare",
+      "vary" : "Accept-Encoding",
+      "access-control-allow-headers" : "*",
+      "cf-cache-status" : "DYNAMIC",
+      "Date" : "Sat, 15 Nov 2025 17:45:51 GMT",
+      "rndr-id" : "254ba90c-9890-4736",
+      "access-control-expose-headers" : "*",
+      "access-control-allow-origin" : "*",
+      "access-control-allow-credentials" : "true",
+      "alt-svc" : "h3=\":443\"; ma=86400",
+      "x-render-origin-server" : "Render",
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "00b3b5b7-0ee0-3bdf-a5ec-e48802230d4c"
+}
