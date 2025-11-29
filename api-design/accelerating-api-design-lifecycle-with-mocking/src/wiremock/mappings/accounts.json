@@ -21,7 +21,8 @@
       "response": {
         "status": 200,
         "headers": {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "location": "/api/accounts/{{request.path.[2]}}"
         },
         "bodyFileName": "../__files/account-get-one-response.json",
         "transformers": ["response-template"]

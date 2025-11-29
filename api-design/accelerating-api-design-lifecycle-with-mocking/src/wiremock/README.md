@@ -62,10 +62,20 @@ curl https://talks-mocking-wiremock.onrender.com/api/health
 ### Option 1: Local Development (Java Required)
 
 1. **Prerequisites**: Java 11+ installed
-2. **Run locally**:
+2. **Download WireMock**:
    ```bash
-   chmod +x mock_local.sh
-   ./mock_local.sh
+   chmod +x 00_get_wiremock.sh
+   ./00_get_wiremock.sh
+   ```
+3. **Start WireMock server**:
+   ```bash
+   chmod +x 01_start_wiremock.sh
+   ./01_start_wiremock.sh
+   ```
+4. **Run tests** (optional):
+   ```bash
+   chmod +x 02_run_tests.sh
+   ./02_run_tests.sh
    ```
 
 ### Option 2: Container Deployment (Recommended)
@@ -97,26 +107,6 @@ curl https://talks-mocking-wiremock.onrender.com/api/health
    ```bash
    docker run -p 8081:8081 --name talks-wiremock-contacts-api -d marcelo10/talks-wiremock-contacts-api:latest
    ```
-
-## 🛠️ Project Structure
-
-```
-.
-├── Dockerfile                          # Container configuration
-├── wiremock-standalone-3.13.1.jar    # WireMock standalone server
-├── mock_local.sh                      # Local development script
-├── podman_build.sh                    # Container build script
-├── podman_run.sh                      # Container run script
-├── mappings/                          # WireMock request/response mappings
-│   ├── accounts.json                  # Accounts API endpoints
-│   ├── health.json                    # Health check endpoint
-│   └── default-404.json              # Fallback 404 handler
-└── __files/                          # Response templates and static files
-    ├── account-get-response.json      # All accounts response
-    ├── account-get-one-response.json  # Single account response (with templating)
-    ├── account-post-response.json     # Create account response (with templating)
-    └── 404-response.json              # Not found error response
-```
 
 ## 🎨 WireMock Features Demonstrated
 
@@ -181,19 +171,34 @@ curl https://talks-mocking-wiremock.onrender.com/api/health
 ### Port Configuration
 
 - **Default port**: 8081
-- **Change port**: Modify the `--port` parameter in scripts or Dockerfile
+- **Change port**: Modify the `--port` parameter in `01_start_wiremock.sh` or Dockerfile
 
 ### Adding New Endpoints
 
 1. Create mapping files in `mappings/` directory
 2. Add response templates in `__files/` directory
-3. Restart the WireMock server
+3. Restart the WireMock server or reload mappings:
+   ```bash
+   chmod +x reload_wiremock.sh
+   ./reload_wiremock.sh
+   ```
 
 ### Customizing Responses
 
 - Edit JSON files in `__files/` directory
 - Use Handlebars templating for dynamic content
 - Refer to [WireMock documentation](http://wiremock.org/docs/) for advanced features
+
+## 🎙️ Recording Mode
+
+You can use WireMock's recording mode to capture requests from a real API:
+
+```bash
+chmod +x start_recording.sh
+./start_recording.sh
+```
+
+This will start WireMock in proxy mode, recording all requests to generate mappings automatically.
 
 ## 📚 Learning Resources
 

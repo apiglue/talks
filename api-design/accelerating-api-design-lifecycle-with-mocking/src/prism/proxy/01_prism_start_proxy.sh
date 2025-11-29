@@ -9,7 +9,7 @@ if [ -z "$HOME_DEV_GH" ]; then
     exit 1
 fi
 
-SPEC_FILE="$HOME_DEV_GH/apiglue/openapi-specs/contacts-api-contract-testing.json"
+SPEC_FILE="contacts-api-contract-testing.json"
 
 if [ ! -f "$SPEC_FILE" ]; then
     echo "Error: OpenAPI spec file not found at $SPEC_FILE"

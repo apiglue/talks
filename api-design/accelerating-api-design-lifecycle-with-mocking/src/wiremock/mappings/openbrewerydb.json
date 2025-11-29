@@ -1,0 +1,14 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPattern": "/openbrewerydb.*"
+      },
+      "response": {
+        "proxyBaseUrl": "https://api.openbrewerydb.org/v1/breweries",
+        "proxyUrlPrefixToRemove": "/openbrewerydb"
+      }
+    }
+  ]
+}
