@@ -9,11 +9,11 @@ if [ -z "$HOME_DEV_GH" ]; then
     exit 1
 fi
 
-SPEC_FILE="contacts-api-contract-testing.json"
+DRIFTED_SPEC_FILE="../oas/drifted-contacts-api.json"
 
-if [ ! -f "$SPEC_FILE" ]; then
-    echo "Error: OpenAPI spec file not found at $SPEC_FILE"
+if [ ! -f "$DRIFTED_SPEC_FILE" ]; then
+    echo "Error: OpenAPI spec file not found at $DRIFTED_SPEC_FILE"
     exit 1
 fi
 
-prism proxy "$SPEC_FILE" https://talks-prism-mock-contacts-api-latest.onrender.com
+prism proxy "$DRIFTED_SPEC_FILE" https://talks-prism-mock-contacts-api-latest.onrender.com
