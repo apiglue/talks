@@ -11,5 +11,3 @@ As organizations increasingly rely on APIs to power digital transformation, the 
 5. Integrating governance processes without stifling innovation or agility.
 
 Drawing on over 10 years of experience dedicated exclusively to API strategy, governance, and implementation across industries, the presenter will share actionable insights and proven strategies for addressing these challenges. Attendees will gain practical tools to define clear governance frameworks, leverage automation, and promote stakeholder alignment, ensuring scalability, reliability, and long-term success in a rapidly evolving API ecosystem.
-
-[Slides](api-governance-slides.pdf)

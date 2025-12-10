@@ -8,14 +8,14 @@ In today’s fast-paced development environment, delivering robust and efficient
 
 This talk explores the role of mocking in enhancing API design workflows, focusing on its ability to:
 
-1.Facilitate early stakeholder feedback by simulating API behavior before development.
-2.Enable parallel development by decoupling frontend and backend teams.
-3.Identify design flaws and inconsistencies earlier, reducing costly downstream changes.
-4.Support rapid iteration and experimentation without impacting live systems.
+- Facilitate early stakeholder feedback by simulating API behavior before development.
+- Enable parallel development by decoupling frontend and backend teams.
+- Identify design flaws and inconsistencies earlier, reducing costly downstream changes.
+- Support rapid iteration and experimentation without impacting live systems.
 
 Using real-world examples and best practices, we’ll demonstrate how tools like Prism and WireMock can be leveraged to create mock APIs that enhance collaboration, improve quality, and dramatically accelerate development timelines. Attendees will leave with actionable insights on integrating mocking into their API design lifecycle, fostering innovation and speed without compromising reliability.
 
-### [Improving API Design with the help of LLM](api-design/improving-api-design-with-the-help-of-llms/README.md)
+### Improving API Design with the help of LLM
 
 Traditional API linting tools like Spectral, have helped teams identify issues in their OpenAPI specifications by surfacing violations of style guides and best practices. But the current paradigm stops at diagnosis—developers are still left with the manual burden of interpreting warnings, resolving inconsistencies, and applying often repetitive best practice fixes.
 
@@ -23,7 +23,7 @@ This talk explores a transformative approach: using large language models (LLMs)
 
 ## API Governance
 
-### [Navigating the Challenges of Implementing API Governance](api-governance/navigating-the-challenges-of-implementing-api-governance/README.md)
+### Navigating the Challenges of Implementing API Governance
 
 Abstract: As organizations increasingly rely on APIs to power digital transformation, the need for consistent, scalable, and secure API management has become critical. However, implementing effective API governance is a complex endeavor fraught with challenges that span technical, organizational, and cultural dimensions. This talk delves into the multifaceted challenges of API governance, including:
 
@@ -37,12 +37,13 @@ Drawing on over 10 years of experience dedicated exclusively to API strategy, go
 
 ## API Strategy
 
-### [Crafting Real-World API Strategies](api-strategy/crafting-real-world-api-strategies/README.md)
+### Crafting Real-World API Strategies
 
 This talk aims to demystify the process of developing and implementing API strategies, catering to both technical and non-technical audiences. Drawing from real-world experiences with Fortune 500 companies, the content will cover the essential elements of a successful API program.
 
 Key Topics
-Crafting a Tailored API Strategy: Learn about key elements in formulating a strategic roadmap for APIs that aligns with the unique goals and challenges of your organization.
-API Architecture Excellence: Dive into best practices for designing scalable, secure, and future-proof API architectures that drive innovation.
-Reasons for Failure: Explore common pitfalls and reasons why API strategies fail to gain traction, offering insights into avoiding these obstacles.
-Case Studies and Practical Insights: Gain insights from real-world case studies, illustrating successful API strategies and the impact they've had on business outcomes.
+
+- Crafting a Tailored API Strategy: Learn about key elements in formulating a strategic roadmap for APIs that aligns with the unique goals and challenges of your organization.
+- API Architecture Excellence: Dive into best practices for designing scalable, secure, and future-proof API architectures that drive innovation.
+- Reasons for Failure: Explore common pitfalls and reasons why API strategies fail to gain traction, offering insights into avoiding these obstacles.
+- Case Studies and Practical Insights: Gain insights from real-world case studies, illustrating successful API strategies and the impact they've had on business outcomes.
