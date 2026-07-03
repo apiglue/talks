@@ -2,19 +2,29 @@
 
 ## Table of Contents
 
+- [RESTFUL API Standards](#restful-api-standards)
+  - [Table of Contents](#table-of-contents)
 - [1 - Naming fundamentals](#1---naming-fundamentals)
   - [1.1 API Name](#11-api-name)
+  - [1.2 Enum values must be upper snake case:](#12-enum-values-must-be-upper-snake-case)
 - [2 - Consistency Fundamentals](#2---consistency-fundamentals)
   - [2.1 - URI](#21---uri)
     - [2.1.1 - URI Parameters](#211---uri-parameters)
   - [2.2 - Examples and descriptions](#22---examples-and-descriptions)
     - [2.2.1 - Descriptions](#221---descriptions)
+  - [2.3 Data types and validation](#23-data-types-and-validation)
+    - [2.3.1 Integer data type lower and upper limits](#231-integer-data-type-lower-and-upper-limits)
+    - [2.3.2 String data type lower and upper limits](#232-string-data-type-lower-and-upper-limits)
 
 # 1 - Naming fundamentals
 
 ## 1.1 API Name
 
 - Name must be descriptive and only contain alphanumeric characters
+
+## 1.2 Enum values must be upper snake case:
+
+- `WORK_PHONE` rather than `workPhone`
 
 # 2 - Consistency Fundamentals
 

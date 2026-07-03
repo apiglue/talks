@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Contacts API",
+    "title": "Contacts API!",
     "description": "",
     "version": "1.0.0",
     "contact": {
@@ -29,26 +29,22 @@
         "summary": "Get all contacts",
         "description": "",
         "operationId": "getContacts",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "parameters": [
           {
             "name": "page",
             "in": "query",
-            "description": "Page number for pagination",
+            "description": "",
             "required": false,
             "schema": {
               "type": "integer",
-              "minimum": 1,
-              "maximum": 1000,
               "default": 1
             }
           },
           {
             "name": "limit",
             "in": "query",
-            "description": "Items per page",
+            "description": "",
             "required": false,
             "schema": {
               "type": "integer",
@@ -60,18 +56,17 @@
           {
             "name": "search",
             "in": "query",
-            "description": "Search term to filter contacts",
+            "description": "",
             "required": false,
             "schema": {
               "type": "string",
-              "minLength": 1,
               "maxLength": 100
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "A list of contacts with pagination info",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -103,11 +98,8 @@
         "summary": "Create a new contact",
         "description": "",
         "operationId": "createContact",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "requestBody": {
-          "description": "Payload with contact information to create",
           "required": true,
           "content": {
             "application/json": {
@@ -119,7 +111,7 @@
         },
         "responses": {
           "201": {
-            "description": "Contact created successfully",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -140,14 +132,12 @@
         }
       }
     },
-    "/contacts/{contactId}": {
+    "/contacts/{ContactId}": {
       "get": {
         "summary": "Get a contact by ID",
         "description": "",
         "operationId": "getContactById",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "parameters": [
           {
             "$ref": "#/components/parameters/ContactId"
@@ -155,7 +145,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Contact details",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -176,16 +166,13 @@
         "summary": "Update a contact",
         "description": "",
         "operationId": "updateContact",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "parameters": [
           {
             "$ref": "#/components/parameters/ContactId"
           }
         ],
         "requestBody": {
-          "description": "Payload with contact fields to update",
           "required": true,
           "content": {
             "application/json": {
@@ -197,7 +184,7 @@
         },
         "responses": {
           "200": {
-            "description": "Contact updated successfully",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -224,9 +211,7 @@
         "summary": "Delete a contact",
         "description": "",
         "operationId": "deleteContact",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "parameters": [
           {
             "$ref": "#/components/parameters/ContactId"
@@ -234,7 +219,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Contact deleted successfully"
+            "description": ""
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -246,7 +231,12 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/ContactId"
+          "schema": {
+            "type": "string"
+          },
+          "name": "ContactId",
+          "in": "path",
+          "required": true
         }
       ]
     }
@@ -255,12 +245,7 @@
     "schemas": {
       "Contact": {
         "type": "object",
-        "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "email"
-        ],
+        "required": ["id", "firstName", "lastName", "email"],
         "properties": {
           "id": {
             "type": "string",
@@ -316,11 +301,7 @@
       },
       "ContactInput": {
         "type": "object",
-        "required": [
-          "firstName",
-          "lastName",
-          "email"
-        ],
+        "required": ["firstName", "lastName", "email"],
         "properties": {
           "firstName": {
             "type": "string",
@@ -358,10 +339,7 @@
       },
       "PhoneNumber": {
         "type": "object",
-        "required": [
-          "number",
-          "type"
-        ],
+        "required": ["number", "type"],
         "properties": {
           "id": {
             "type": "string",
@@ -376,12 +354,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "mobile",
-              "home",
-              "work",
-              "other"
-            ],
+            "enum": ["mobile", "home", "work", "other"],
             "description": "",
             "example": "mobile"
           },
@@ -394,10 +367,7 @@
       },
       "PhoneNumberInput": {
         "type": "object",
-        "required": [
-          "number",
-          "type"
-        ],
+        "required": ["number", "type"],
         "properties": {
           "number": {
             "type": "string",
@@ -407,12 +377,7 @@
           },
           "type": {
             "type": "string",
-            "enum": [
-              "mobile",
-              "home",
-              "work",
-              "other"
-            ],
+            "enum": ["mobile", "home", "work", "other"],
             "description": "",
             "example": "mobile"
           },
@@ -521,16 +486,11 @@
       },
       "Error": {
         "type": "object",
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "properties": {
           "error": {
             "type": "object",
-            "required": [
-              "code",
-              "message"
-            ],
+            "required": ["code", "message"],
             "properties": {
               "code": {
                 "type": "string",
@@ -564,18 +524,16 @@
         "name": "contactId",
         "in": "path",
         "required": true,
-        "description": "The unique identifier (UUID) of the contact",
+        "description": "",
         "schema": {
           "type": "string",
-          "format": "uuid",
-          "minLength": 36,
-          "maxLength": 36
+          "format": "uuid"
         }
       }
     },
     "responses": {
       "BadRequest": {
-        "description": "Bad request - the request could not be understood or was missing required parameters",
+        "description": "",
         "content": {
           "application/json": {
             "schema": {
@@ -585,7 +543,7 @@
         }
       },
       "NotFound": {
-        "description": "Resource not found",
+        "description": "",
         "content": {
           "application/json": {
             "schema": {
@@ -595,7 +553,7 @@
         }
       },
       "ValidationError": {
-        "description": "Validation failed for the given input",
+        "description": "",
         "content": {
           "application/json": {
             "schema": {
@@ -605,7 +563,7 @@
         }
       },
       "InternalServerError": {
-        "description": "Internal server error",
+        "description": "",
         "content": {
           "application/json": {
             "schema": {

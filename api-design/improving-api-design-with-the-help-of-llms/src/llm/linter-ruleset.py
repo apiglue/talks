@@ -13,12 +13,12 @@ def main():
     """Main function that demonstrates OpenAI language model usage when fixing openapi spec file"""
 
     llm = ChatOpenAI(
-    model="gpt-5-mini",
-    temperature=0,
-    max_tokens=None,
-    timeout=None,
-    max_retries=0,
-    #reasoning_effort=""
+    model="gpt-5.5",
+    # temperature=0,
+    # max_tokens=None,
+    # timeout=None,
+    # max_retries=0,
+    #.reasoning_effort=""
     )
 
 
@@ -27,16 +27,21 @@ def main():
         raise ValueError("Failed to load prompt template")
     
     
-    openapi_spec_file = utils.load_json_from_file("./specs/openapi-non-compliant.json")
+    openapi_spec_file = utils.load_json_from_file("../../../specs/openapi-non-compliant.json")
     if openapi_spec_file is None:
         raise ValueError("Failed to load OpenAPI spec file")
+    
+    system_prompt = prompt_template.get("ruleset", {}).get("system_prompt")
 
-    system_prompt = prompt_template.get("natural_language", {}).get("system_prompt")
+    user_prompt_ruleset = utils.load_json_from_file("../../../rulesets/api-design-standards-ruleset.json")
+    if user_prompt_ruleset is None:
+        raise ValueError("Failed to load spectral linter results")
 
     chat_prompt = ChatPromptTemplate.from_messages(
         [
             ("system","{system_prompt}"),
             ("user", "{openapi_spec_file}"),
+            ("user", "{user_prompt_ruleset}"),
         ]
     )
 
@@ -49,6 +54,7 @@ def main():
         results = chain.invoke({
             "system_prompt": system_prompt,
             "openapi_spec_file": openapi_spec_file,
+            "user_prompt_ruleset": user_prompt_ruleset
         })
         end_time = datetime.now()
         print(f"Process ended at ==> {utils.current_time()}")
@@ -62,7 +68,7 @@ def main():
         return
 
     try:
-        utils.save_result_to_file("./output/openapi-compliant-natural.json",results.content)
+        utils.save_result_to_file("./output/openapi-compliant-ruleset.json",results.content)
     except Exception as e:
         print(f"Error occurred while saving results: {e}")   
 

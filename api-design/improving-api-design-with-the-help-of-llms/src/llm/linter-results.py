@@ -13,12 +13,12 @@ def main():
     """Main function that demonstrates OpenAI language model usage when fixing openapi spec file"""
 
     llm = ChatOpenAI(
-    model="gpt-5-mini",
-    temperature=0,
-    max_tokens=None,
-    timeout=None,
-    max_retries=0,
-    #reasoning_effort=""
+    model="o3-mini",
+    # temperature=0,
+    # max_tokens=None,
+    # timeout=None,
+    # max_retries=0,
+    # reasoning_effort=""
     )
 
     # LOAD TEMPLATES 
@@ -27,7 +27,7 @@ def main():
         raise ValueError("Failed to load prompt template")
     
     # LOAD SOURCE OAS FILE
-    openapi_spec_file = utils.load_json_from_file("./specs/openapi-non-compliant.json")
+    openapi_spec_file = utils.load_json_from_file("../../../specs/openapi-non-compliant.json")
     if openapi_spec_file is None:
         raise ValueError("Failed to load OpenAPI spec file")
     
@@ -35,7 +35,7 @@ def main():
     system_prompt = prompt_template.get("results", {}).get("system_prompt")
 
     # LOAD SPECTRAL LINTER RESULTS
-    spectral_linter_results = utils.load_json_from_file("./specs/spectral-linter-results.json")
+    spectral_linter_results = utils.load_json_from_file("../specs/spectral-linter-results-extended.json")
     if spectral_linter_results is None:
         raise ValueError("Failed to load spectral linter results")
 

@@ -4,7 +4,6 @@
       "description": "RESTful API standards ruleset version 1.0.0 (json version)",
       "documentationUrl": "https://github.com/apiglue/talks",
       "severity": "hint",
-      "type": "style",
       "given": "$",
       "then": {
         "function": "falsy"
@@ -12,9 +11,8 @@
     },
     "RESTFUL-STD-1.1-NAMING-FUNDAMENTALS-API-NAME": {
       "severity": "error",
-      "message": "API name must be descriptive and only contain alphanumeric characters",
+      "message": "1.1 - API name must be descriptive and only contain alphanumeric characters",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#11-api-name",
-      "type": "style",
       "given": "$.info.title",
       "then": [
         {
@@ -26,12 +24,33 @@
         }
       ]
     },
+
+    "RESTFUL-STD-1.2-ENUM-UPPER-SNAKE-CASE": {
+      "severity": "error",
+      "message": "1.2 - ENUM and x-extensible-enum values must user UPPER_SNAKE_CASE formatting",
+      "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#12-enum-values-must-be-upper-snake-case",
+      "given": [
+        "$.components.schemas.*..enum[*]",
+        "$.components.*..x-extensible-enum[*]",
+        "$.paths.*.*..schema..enum[*]",
+        "$.paths.*.*..schema..x-extensible-enum[*]"
+      ],
+      "then": [
+        {
+          "function": "pattern",
+          "functionOptions": {
+            "match": "^[A-Z][A-Z_0-9]*$"
+          }
+        }
+      ]
+    },
+
     "RESTFUL-STD-2.1.1-CONSISTENCY-FUNDAMENTALS-URI-PARAMS": {
       "severity": "error",
-      "message": "URI parameters must be formatted as lower camel case",
+      "message": "2.1.1 - URI parameters must be formatted as lower camel case",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#211---uri-parameters",
       "given": "$.paths..parameters[?(@.in=='path')].name",
-      "type": "style",
+
       "then": {
         "function": "casing",
         "functionOptions": {
@@ -41,10 +60,10 @@
     },
     "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-PATH-PARAMS": {
       "severity": "error",
-      "message": "Path parameters must have a description",
+      "message": "2.1.2 - Path parameters must have a description",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#221---descriptions",
       "given": "$.paths..parameters[?(@.in=='path')]",
-      "type": "style",
+
       "then": [
         {
           "field": "description",
@@ -54,10 +73,10 @@
     },
     "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-QUERY-PARAMS": {
       "severity": "error",
-      "message": "Query parameters must have a description",
+      "message": "2.1.2 - Query parameters must have a description",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#221---descriptions",
       "given": "$.paths..parameters[?(@.in=='query')]",
-      "type": "style",
+
       "then": [
         {
           "field": "description",
@@ -70,7 +89,7 @@
       "message": "Request headers must have a description",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#221---descriptions",
       "given": "$.paths..parameters[?(@.in=='header')]",
-      "type": "style",
+
       "then": [
         {
           "field": "description",
@@ -80,10 +99,10 @@
     },
     "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-HEADERS": {
       "severity": "error",
-      "message": "Response headers must have a description",
+      "message": "2.1.2 - Response headers must have a description",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#221---descriptions",
       "given": "$.paths..responses..headers",
-      "type": "style",
+
       "then": [
         {
           "field": "description",
@@ -93,10 +112,10 @@
     },
     "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-REQUEST-BODY": {
       "severity": "error",
-      "message": "Request body must have a description",
+      "message": "2.1.2 -Request body must have a description",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#221---descriptions",
       "given": ["$.paths[*].*.requestBody", "$.components.requestBodies.*"],
-      "type": "style",
+
       "then": [
         {
           "field": "description",
@@ -106,10 +125,10 @@
     },
     "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-RESPONSE-BODY": {
       "severity": "error",
-      "message": "Response body must have a description",
+      "message": "2.1.2 - Response body must have a description",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#221---descriptions",
       "given": ["$.paths[*]..responses.*"],
-      "type": "style",
+
       "then": [
         {
           "field": "description",
@@ -119,10 +138,10 @@
     },
     "RESTFUL-STD-2.1.2-CONSISTENCY-FUNDAMENTALS-DESCRIPTION-COOKIES": {
       "severity": "error",
-      "message": "Cookies must have a description",
+      "message": "2.1.2 - Cookies must have a description",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help/standards.md#221---descriptions",
       "given": "$.paths..responses..cookies",
-      "type": "style",
+
       "then": [
         {
           "field": "description",
@@ -132,10 +151,10 @@
     },
     "RESTFUL-STD-2.3.1-CONSISTENCY-FUNDAMENTALS-INTEGER-MAX": {
       "severity": "error",
-      "message": "Integer properties must have a maximum value",
+      "message": "2.3.1 - Integer properties must have a maximum value",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help-of-llms/src/standards.md#231-integer-data-type-lower-and-upper-limits",
       "given": "$.paths..parameters[?(@.schema.type=='integer')].schema",
-      "type": "style",
+
       "then": [
         {
           "field": "maximum",
@@ -145,10 +164,10 @@
     },
     "RESTFUL-STD-2.3.1-CONSISTENCY-FUNDAMENTALS-INTEGER-MIN": {
       "severity": "error",
-      "message": "Integer properties must have a minimum value",
+      "message": "2.3.1 - Integer properties must have a minimum value",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help-of-llms/src/standards.md#231-integer-data-type-lower-and-upper-limits",
       "given": "$.paths..parameters[?(@.schema.type=='integer')].schema",
-      "type": "style",
+
       "then": [
         {
           "field": "minimum",
@@ -158,10 +177,10 @@
     },
     "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MAXLENGTH": {
       "severity": "error",
-      "message": "String properties must have a maxLength",
+      "message": "2.3.2 - String properties must have a maxLength",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help-of-llms/src/standards.md#232-string-data-type-lower-and-upper-limits",
       "given": "$.paths..parameters[?(@.schema.type=='string')].schema",
-      "type": "style",
+
       "then": [
         {
           "field": "maxLength",
@@ -171,10 +190,10 @@
     },
     "RESTFUL-STD-2.3.2-CONSISTENCY-FUNDAMENTALS-STRING-MINLENGTH": {
       "severity": "error",
-      "message": "String properties must have a minLength",
+      "message": "2.3.2 - String properties must have a minLength",
       "documentationUrl": "https://github.com/apiglue/talks/blob/master/api-design/improving-api-design-with-the-help-of-llms/src/standards.md#232-string-data-type-lower-and-upper-limits",
       "given": "$.paths..parameters[?(@.schema.type=='string')].schema",
-      "type": "style",
+
       "then": [
         {
           "field": "minLength",
