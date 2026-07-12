@@ -11,7 +11,7 @@ This project was created for talks and demonstrations about API mocking techniqu
 - **Complete REST API simulation** for a contacts/accounts service
 - **Dynamic response templating** using Handlebars
 - **JSON Schema validation** for request payloads
-- **Containerized deployment** with Docker/Podman
+- **Containerized deployment** with Docker
 - **Local development** support
 - **Health check endpoint** for monitoring
 - **Custom 404 handling** with detailed error responses
@@ -80,22 +80,22 @@ curl https://talks-mocking-wiremock.onrender.com/api/health
 
 ### Option 2: Container Deployment (Recommended)
 
-#### Using Podman
+#### Using the helper scripts
 
 1. **Build the container**:
 
    ```bash
-   chmod +x podman_build.sh
-   ./podman_build.sh
+   chmod +x container/docker_build.sh
+   ./container/docker_build.sh
    ```
 
 2. **Run the container**:
    ```bash
-   chmod +x podman_run.sh
-   ./podman_run.sh
+   chmod +x container/docker_run.sh
+   ./container/docker_run.sh
    ```
 
-#### Using Docker
+#### Using Docker directly
 
 1. **Build the image**:
 

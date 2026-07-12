@@ -52,6 +52,9 @@ natural_language:
     - Data type validation
         - Integer data type must have minimum and maximum property values defined
         - String data type must have minimum and maximum property values defined
+    - Enum values must be upper snake case
+      - Example: MAIN_ADDRESS instead o main_address
+      - Example: MOBILE instead of mobile
     Make only the required changes to bring the OpenAPI specification into full compliance with the above standards. Do not make any other modifications.
   user_prompt_spec: |
     OpenAPI Specification file to be fixed: "{openapi_spec_file}"

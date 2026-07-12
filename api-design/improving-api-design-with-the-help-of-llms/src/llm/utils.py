@@ -57,8 +57,7 @@ def time_format(timestamp):
 
 def total_tokens_utilized(message):
     """Calculate the total tokens utilized in a message."""
-    total_tokens = 0
-    token_key_usage = "token_usage"
-    if token_key_usage in message:
-        total_tokens = message[token_key_usage]
-    return total_tokens
+    if hasattr(message, 'usage_metadata') and message.usage_metadata:
+        return message.usage_metadata.get('total_tokens', 0)
+    token_usage = message.response_metadata.get('token_usage', {})
+    return token_usage.get('total_tokens', 0)

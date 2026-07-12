@@ -34,15 +34,15 @@ REGISTRY="docker.io/marcelo10"
 FULL_IMAGE_NAME="${REGISTRY}/${IMAGE_NAME}:${TAG}"
 OPENAPI_URL="https://raw.githubusercontent.com/apiglue/openapi-specs/refs/heads/main/contacts-api.json"
 
-# Check if podman is installed
-if ! command -v podman &> /dev/null; then
-    error "podman is not installed. Please install podman first."
+# Check if docker is installed
+if ! command -v docker &> /dev/null; then
+    error "docker is not installed. Please install docker first."
     exit 1
 fi
 
 # Build the image
 info "Building image ${IMAGE_NAME}:${TAG} for linux/amd64..."
-if podman build --platform linux/amd64 --build-arg OPENAPI_URL="${OPENAPI_URL}" -t "${IMAGE_NAME}:${TAG}" .; then
+if docker build --platform linux/amd64 --build-arg OPENAPI_URL="${OPENAPI_URL}" -t "${IMAGE_NAME}:${TAG}" .; then
     success "Image built successfully"
 else
     error "Failed to build image"
@@ -51,7 +51,7 @@ fi
 
 # Tag the image
 info "Tagging image as ${FULL_IMAGE_NAME}..."
-if podman tag "${IMAGE_NAME}:${TAG}" "${FULL_IMAGE_NAME}"; then
+if docker tag "${IMAGE_NAME}:${TAG}" "${FULL_IMAGE_NAME}"; then
     success "Image tagged successfully"
 else
     error "Failed to tag image"
@@ -60,10 +60,10 @@ fi
 
 # Push the image
 info "Pushing image to ${FULL_IMAGE_NAME}..."
-if podman push "${FULL_IMAGE_NAME}"; then
+if docker push "${FULL_IMAGE_NAME}"; then
     success "Image pushed successfully to registry"
 else
-    error "Failed to push image. Make sure you're logged in to the registry with 'podman login ${REGISTRY}'"
+    error "Failed to push image. Make sure you're logged in to the registry with 'docker login ${REGISTRY}'"
     exit 1
 fi
 

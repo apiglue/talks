@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Contacts API",
-    "description": "",
+    "title": "ContactsAPI",
+    "description": "API for managing contacts.",
     "version": "1.0.0",
     "contact": {
       "name": "API Support",
@@ -16,39 +16,37 @@
   "servers": [
     {
       "url": "https://api.example.com/v1",
-      "description": ""
+      "description": "Production server"
     },
     {
       "url": "https://staging-api.example.com/v1",
-      "description": ""
+      "description": "Staging server"
     }
   ],
   "paths": {
     "/contacts": {
       "get": {
         "summary": "Get all contacts",
-        "description": "",
+        "description": "Retrieve a list of contacts with pagination support.",
         "operationId": "getContacts",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "parameters": [
           {
             "name": "page",
             "in": "query",
-            "description": "Page number for pagination",
+            "description": "Page number for pagination.",
             "required": false,
             "schema": {
               "type": "integer",
+              "default": 1,
               "minimum": 1,
-              "maximum": 1000,
-              "default": 1
+              "maximum": 10000
             }
           },
           {
             "name": "limit",
             "in": "query",
-            "description": "Items per page",
+            "description": "Maximum number of contacts per page.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -60,7 +58,7 @@
           {
             "name": "search",
             "in": "query",
-            "description": "Search term to filter contacts",
+            "description": "Filter contacts by search term (name or email).",
             "required": false,
             "schema": {
               "type": "string",
@@ -71,7 +69,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A list of contacts with pagination info",
+            "description": "A list of contacts and pagination details.",
             "content": {
               "application/json": {
                 "schema": {
@@ -101,13 +99,11 @@
       },
       "post": {
         "summary": "Create a new contact",
-        "description": "",
+        "description": "Create a new contact with the provided information.",
         "operationId": "createContact",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "requestBody": {
-          "description": "Payload with contact information to create",
+          "description": "Contact information for the new contact.",
           "required": true,
           "content": {
             "application/json": {
@@ -119,7 +115,7 @@
         },
         "responses": {
           "201": {
-            "description": "Contact created successfully",
+            "description": "Contact created successfully.",
             "content": {
               "application/json": {
                 "schema": {
@@ -143,11 +139,9 @@
     "/contacts/{contactId}": {
       "get": {
         "summary": "Get a contact by ID",
-        "description": "",
+        "description": "Retrieve a contact by its unique identifier.",
         "operationId": "getContactById",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "parameters": [
           {
             "$ref": "#/components/parameters/ContactId"
@@ -155,7 +149,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Contact details",
+            "description": "Contact retrieved successfully.",
             "content": {
               "application/json": {
                 "schema": {
@@ -174,18 +168,16 @@
       },
       "put": {
         "summary": "Update a contact",
-        "description": "",
+        "description": "Update an existing contact with new information.",
         "operationId": "updateContact",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "parameters": [
           {
             "$ref": "#/components/parameters/ContactId"
           }
         ],
         "requestBody": {
-          "description": "Payload with contact fields to update",
+          "description": "Updated contact information.",
           "required": true,
           "content": {
             "application/json": {
@@ -197,7 +189,7 @@
         },
         "responses": {
           "200": {
-            "description": "Contact updated successfully",
+            "description": "Contact updated successfully.",
             "content": {
               "application/json": {
                 "schema": {
@@ -222,11 +214,9 @@
       },
       "delete": {
         "summary": "Delete a contact",
-        "description": "",
+        "description": "Delete a contact using its unique identifier.",
         "operationId": "deleteContact",
-        "tags": [
-          "Contacts"
-        ],
+        "tags": ["Contacts"],
         "parameters": [
           {
             "$ref": "#/components/parameters/ContactId"
@@ -234,7 +224,7 @@
         ],
         "responses": {
           "204": {
-            "description": "Contact deleted successfully"
+            "description": "Contact deleted successfully."
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -246,7 +236,16 @@
       },
       "parameters": [
         {
-          "$ref": "#/components/parameters/ContactId"
+          "name": "contactId",
+          "in": "path",
+          "required": true,
+          "description": "Unique contact identifier.",
+          "schema": {
+            "type": "string",
+            "format": "uuid",
+            "minLength": 36,
+            "maxLength": 36
+          }
         }
       ]
     }
@@ -255,36 +254,36 @@
     "schemas": {
       "Contact": {
         "type": "object",
-        "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "email"
-        ],
+        "required": ["id", "firstName", "lastName", "email"],
         "properties": {
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": "",
-            "example": "550e8400-e29b-41d4-a716-446655440000"
+            "description": "Unique identifier for the contact.",
+            "example": "550e8400-e29b-41d4-a716-446655440000",
+            "minLength": 36,
+            "maxLength": 36
           },
           "firstName": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "First name of the contact.",
             "example": "John"
           },
           "lastName": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "Last name of the contact.",
             "example": "Doe"
           },
           "email": {
             "type": "string",
             "format": "email",
+            "minLength": 5,
             "maxLength": 100,
-            "description": "",
+            "description": "Email address of the contact.",
             "example": "john.doe@example.com"
           },
           "phoneNumbers": {
@@ -292,7 +291,7 @@
             "items": {
               "$ref": "#/components/schemas/PhoneNumber"
             },
-            "description": ""
+            "description": "List of phone numbers associated with the contact."
           },
           "homeAddress": {
             "$ref": "#/components/schemas/Address"
@@ -303,42 +302,45 @@
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "",
+            "description": "Timestamp when the contact was created.",
+            "minLength": 1,
+            "maxLength": 50,
             "example": "2023-01-15T10:30:00Z"
           },
           "updatedAt": {
             "type": "string",
             "format": "date-time",
-            "description": "",
+            "description": "Timestamp when the contact was last updated.",
+            "minLength": 1,
+            "maxLength": 50,
             "example": "2023-01-20T14:45:00Z"
           }
         }
       },
       "ContactInput": {
         "type": "object",
-        "required": [
-          "firstName",
-          "lastName",
-          "email"
-        ],
+        "required": ["firstName", "lastName", "email"],
         "properties": {
           "firstName": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "First name of the contact.",
             "example": "John"
           },
           "lastName": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "Last name of the contact.",
             "example": "Doe"
           },
           "email": {
             "type": "string",
             "format": "email",
+            "minLength": 5,
             "maxLength": 100,
-            "description": "",
+            "description": "Email address of the contact.",
             "example": "john.doe@example.com"
           },
           "phoneNumbers": {
@@ -346,7 +348,7 @@
             "items": {
               "$ref": "#/components/schemas/PhoneNumberInput"
             },
-            "description": ""
+            "description": "List of phone numbers for the contact."
           },
           "homeAddress": {
             "$ref": "#/components/schemas/AddressInput"
@@ -358,68 +360,62 @@
       },
       "PhoneNumber": {
         "type": "object",
-        "required": [
-          "number",
-          "type"
-        ],
+        "required": ["number", "type"],
         "properties": {
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": ""
+            "description": "Unique identifier for the phone number.",
+            "minLength": 36,
+            "maxLength": 36
           },
           "number": {
             "type": "string",
             "pattern": "^\\+?[1-9]\\d{1,14}$",
-            "description": "",
+            "minLength": 5,
+            "maxLength": 20,
+            "description": "Phone number.",
             "example": "+1234567890"
           },
           "type": {
             "type": "string",
-            "enum": [
-              "mobile",
-              "home",
-              "work",
-              "other"
-            ],
-            "description": "",
-            "example": "mobile"
+            "enum": ["MOBILE", "HOME", "WORK", "OTHER"],
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "Type of phone number.",
+            "example": "MOBILE"
           },
           "isPrimary": {
             "type": "boolean",
             "default": false,
-            "description": ""
+            "description": "Indicates if this is the primary phone number."
           }
         }
       },
       "PhoneNumberInput": {
         "type": "object",
-        "required": [
-          "number",
-          "type"
-        ],
+        "required": ["number", "type"],
         "properties": {
           "number": {
             "type": "string",
             "pattern": "^\\+?[1-9]\\d{1,14}$",
-            "description": "",
+            "minLength": 5,
+            "maxLength": 20,
+            "description": "Phone number.",
             "example": "+1234567890"
           },
           "type": {
             "type": "string",
-            "enum": [
-              "mobile",
-              "home",
-              "work",
-              "other"
-            ],
-            "description": "",
-            "example": "mobile"
+            "enum": ["MOBILE", "HOME", "WORK", "OTHER"],
+            "minLength": 1,
+            "maxLength": 20,
+            "description": "Type of phone number.",
+            "example": "MOBILE"
           },
           "isPrimary": {
             "type": "boolean",
             "default": false,
-            "description": ""
+            "description": "Indicates if this is the primary phone number."
           }
         }
       },
@@ -429,36 +425,43 @@
           "id": {
             "type": "string",
             "format": "uuid",
-            "description": ""
+            "description": "Unique identifier for the address.",
+            "minLength": 36,
+            "maxLength": 36
           },
           "street": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 100,
-            "description": "",
+            "description": "Street address.",
             "example": "123 Main Street"
           },
           "city": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "City of the address.",
             "example": "New York"
           },
           "state": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "State or province.",
             "example": "NY"
           },
           "postalCode": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 20,
-            "description": "",
+            "description": "Postal code.",
             "example": "10001"
           },
           "country": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "Country of the address.",
             "example": "United States"
           }
         }
@@ -468,32 +471,37 @@
         "properties": {
           "street": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 100,
-            "description": "",
+            "description": "Street address.",
             "example": "123 Main Street"
           },
           "city": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "City of the address.",
             "example": "New York"
           },
           "state": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "State or province.",
             "example": "NY"
           },
           "postalCode": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 20,
-            "description": "",
+            "description": "Postal code.",
             "example": "10001"
           },
           "country": {
             "type": "string",
+            "minLength": 1,
             "maxLength": 50,
-            "description": "",
+            "description": "Country of the address.",
             "example": "United States"
           }
         }
@@ -503,42 +511,49 @@
         "properties": {
           "page": {
             "type": "integer",
-            "description": ""
+            "description": "Current page number.",
+            "minimum": 1,
+            "maximum": 10000
           },
           "limit": {
             "type": "integer",
-            "description": ""
+            "description": "Number of items per page.",
+            "minimum": 1,
+            "maximum": 100
           },
           "total": {
             "type": "integer",
-            "description": ""
+            "description": "Total number of contacts.",
+            "minimum": 0,
+            "maximum": 100000
           },
           "totalPages": {
             "type": "integer",
-            "description": ""
+            "description": "Total number of pages.",
+            "minimum": 0,
+            "maximum": 1000
           }
         }
       },
       "Error": {
         "type": "object",
-        "required": [
-          "error"
-        ],
+        "required": ["error"],
         "properties": {
           "error": {
             "type": "object",
-            "required": [
-              "code",
-              "message"
-            ],
+            "required": ["code", "message"],
             "properties": {
               "code": {
                 "type": "string",
-                "description": ""
+                "description": "Error code.",
+                "minLength": 1,
+                "maxLength": 50
               },
               "message": {
                 "type": "string",
-                "description": ""
+                "description": "Error message.",
+                "minLength": 1,
+                "maxLength": 200
               },
               "details": {
                 "type": "array",
@@ -546,10 +561,16 @@
                   "type": "object",
                   "properties": {
                     "field": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The field with an error.",
+                      "minLength": 1,
+                      "maxLength": 100
                     },
                     "message": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Description of the error.",
+                      "minLength": 1,
+                      "maxLength": 200
                     }
                   }
                 }
@@ -564,7 +585,7 @@
         "name": "contactId",
         "in": "path",
         "required": true,
-        "description": "The unique identifier (UUID) of the contact",
+        "description": "Unique identifier for the contact.",
         "schema": {
           "type": "string",
           "format": "uuid",
@@ -575,7 +596,7 @@
     },
     "responses": {
       "BadRequest": {
-        "description": "Bad request - the request could not be understood or was missing required parameters",
+        "description": "Bad request error.",
         "content": {
           "application/json": {
             "schema": {
@@ -585,7 +606,7 @@
         }
       },
       "NotFound": {
-        "description": "Resource not found",
+        "description": "Resource not found.",
         "content": {
           "application/json": {
             "schema": {
@@ -595,7 +616,7 @@
         }
       },
       "ValidationError": {
-        "description": "Validation failed for the given input",
+        "description": "Validation error details.",
         "content": {
           "application/json": {
             "schema": {
@@ -605,7 +626,7 @@
         }
       },
       "InternalServerError": {
-        "description": "Internal server error",
+        "description": "Internal server error occurred.",
         "content": {
           "application/json": {
             "schema": {
@@ -619,7 +640,7 @@
   "tags": [
     {
       "name": "Contacts",
-      "description": ""
+      "description": "Operations related to managing contacts."
     }
   ]
 }
