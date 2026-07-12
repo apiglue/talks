@@ -1,2 +1,2 @@
 #!/bin/zsh
-podman build -t marcelo10/talks-wiremock-contacts-api:latest .
+docker build -t marcelo10/talks-wiremock-contacts-api:latest .

@@ -18,7 +18,7 @@ This project provides a Docker-based setup for running API mock servers using Pr
 
 ### Prerequisites
 
-- Docker or Podman installed on your system
+- Docker (Docker Desktop) installed on your system
 - Network access to download OpenAPI specifications (for remote URLs)
 
 ### Building the Container
