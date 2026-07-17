@@ -34,19 +34,19 @@
           {
             "name": "page",
             "in": "query",
-            "description": "The page number of results to return for GET /contacts.",
+            "description": "The page number of contacts to retrieve, starting at 1.",
             "required": false,
             "schema": {
               "type": "integer",
+              "default": 1,
               "minimum": 1,
-              "maximum": 10000,
-              "default": 1
+              "maximum": 10000
             }
           },
           {
             "name": "limit",
             "in": "query",
-            "description": "The maximum number of contacts to return per page for GET /contacts.",
+            "description": "The maximum number of contacts to return per page.",
             "required": false,
             "schema": {
               "type": "integer",
@@ -58,18 +58,18 @@
           {
             "name": "search",
             "in": "query",
-            "description": "A search term used to filter contacts by name or email for GET /contacts.",
+            "description": "A search term used to filter contacts by name or email.",
             "required": false,
             "schema": {
               "type": "string",
-              "minLength": 1,
-              "maxLength": 100
+              "maxLength": 100,
+              "minLength": 1
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "A paginated list of contacts matching the request query parameters.",
+            "description": "A paginated list of contacts matching the given query parameters.",
             "content": {
               "application/json": {
                 "schema": {
@@ -103,7 +103,7 @@
         "operationId": "createContact",
         "tags": ["Contacts"],
         "requestBody": {
-          "description": "The contact details to create, submitted as a POST request to /contacts.",
+          "description": "The contact details to create.",
           "required": true,
           "content": {
             "application/json": {
@@ -149,7 +149,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The contact matching the requested contactId.",
+            "description": "The contact matching the given contact ID.",
             "content": {
               "application/json": {
                 "schema": {
@@ -177,7 +177,7 @@
           }
         ],
         "requestBody": {
-          "description": "The updated contact details, submitted as a PUT request to /contacts/{contactId}.",
+          "description": "The updated contact details.",
           "required": true,
           "content": {
             "application/json": {
@@ -224,7 +224,7 @@
         ],
         "responses": {
           "204": {
-            "description": "The contact was deleted successfully; no content is returned."
+            "description": "The contact was successfully deleted; no content is returned."
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -238,13 +238,13 @@
         {
           "schema": {
             "type": "string",
-            "minLength": 36,
-            "maxLength": 36
+            "maxLength": 255,
+            "minLength": 1
           },
           "name": "contactId",
           "in": "path",
-          "required": true,
-          "description": "The unique identifier of the contact."
+          "description": "The unique identifier of the contact.",
+          "required": true
         }
       ]
     }
@@ -364,7 +364,7 @@
             "type": "string",
             "enum": ["MOBILE", "HOME", "WORK", "OTHER"],
             "description": "",
-            "example": "MOBILE"
+            "example": "mobile"
           },
           "isPrimary": {
             "type": "boolean",
@@ -387,7 +387,7 @@
             "type": "string",
             "enum": ["MOBILE", "HOME", "WORK", "OTHER"],
             "description": "",
-            "example": "MOBILE"
+            "example": "mobile"
           },
           "isPrimary": {
             "type": "boolean",
@@ -532,12 +532,12 @@
         "name": "contactId",
         "in": "path",
         "required": true,
-        "description": "The unique identifier of the contact to retrieve, update, or delete.",
+        "description": "The unique identifier (UUID) of the contact.",
         "schema": {
           "type": "string",
           "format": "uuid",
-          "minLength": 36,
-          "maxLength": 36
+          "maxLength": 36,
+          "minLength": 36
         }
       }
     },
@@ -563,7 +563,7 @@
         }
       },
       "ValidationError": {
-        "description": "The request body failed validation.",
+        "description": "The request body failed validation against the expected schema.",
         "content": {
           "application/json": {
             "schema": {
@@ -573,7 +573,7 @@
         }
       },
       "InternalServerError": {
-        "description": "An unexpected server error occurred while processing the request.",
+        "description": "An unexpected error occurred while processing the request.",
         "content": {
           "application/json": {
             "schema": {

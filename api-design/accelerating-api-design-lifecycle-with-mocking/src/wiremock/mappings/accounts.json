@@ -24,6 +24,7 @@
           "Content-Type": "application/json",
           "location": "/api/accounts/{{request.path.[2]}}"
         },
+        "fixedDelayMilliseconds": 2000,
         "bodyFileName": "../__files/account-get-one-response.json",
         "transformers": ["response-template"]
       }
