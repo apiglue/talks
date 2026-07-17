@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Contacts API",
-    "description": "A RESTful API for managing contact records, including personal details, phone numbers, and addresses.",
+    "description": "",
     "version": "1.0.0",
     "contact": {
       "name": "API Support",
@@ -16,18 +16,18 @@
   "servers": [
     {
       "url": "https://api.example.com/v1",
-      "description": "The production API server."
+      "description": ""
     },
     {
       "url": "https://staging-api.example.com/v1",
-      "description": "The staging API server for testing purposes."
+      "description": ""
     }
   ],
   "paths": {
     "/contacts": {
       "get": {
         "summary": "Get all contacts",
-        "description": "Retrieves a paginated list of contacts, optionally filtered by a search term.",
+        "description": "Retrieves a paginated list of contacts, optionally filtered by a search query.",
         "operationId": "getContacts",
         "tags": ["Contacts"],
         "parameters": [
@@ -99,11 +99,11 @@
       },
       "post": {
         "summary": "Create a new contact",
-        "description": "Creates a new contact record with the provided details.",
+        "description": "Creates a new contact record.",
         "operationId": "createContact",
         "tags": ["Contacts"],
         "requestBody": {
-          "description": "The contact details to create.",
+          "description": "The contact data to create.",
           "required": true,
           "content": {
             "application/json": {
@@ -177,7 +177,7 @@
           }
         ],
         "requestBody": {
-          "description": "The updated contact details.",
+          "description": "The updated contact data.",
           "required": true,
           "content": {
             "application/json": {
@@ -237,9 +237,7 @@
       "parameters": [
         {
           "schema": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 50
+            "type": "string"
           },
           "name": "contactId",
           "in": "path",
@@ -257,10 +255,10 @@
           "id": {
             "type": "string",
             "format": "uuid",
+            "description": "The unique identifier of the contact.",
+            "example": "550e8400-e29b-41d4-a716-446655440000",
             "minLength": 36,
-            "maxLength": 36,
-            "description": "The unique identifier of the contact, in UUID format.",
-            "example": "550e8400-e29b-41d4-a716-446655440000"
+            "maxLength": 36
           },
           "firstName": {
             "type": "string",
@@ -300,13 +298,13 @@
           "createdAt": {
             "type": "string",
             "format": "date-time",
-            "description": "The timestamp when this contact was created, in ISO 8601 format.",
+            "description": "The timestamp when this record was created, in ISO 8601 format.",
             "example": "2023-01-15T10:30:00Z"
           },
           "updatedAt": {
             "type": "string",
             "format": "date-time",
-            "description": "The timestamp when this contact was last updated, in ISO 8601 format.",
+            "description": "The timestamp when this record was last updated, in ISO 8601 format.",
             "example": "2023-01-20T14:45:00Z"
           }
         }
@@ -342,7 +340,7 @@
             "items": {
               "$ref": "#/components/schemas/PhoneNumberInput"
             },
-            "description": "The list of phone numbers to associate with the contact."
+            "description": "The list of phone numbers associated with the contact."
           },
           "homeAddress": {
             "$ref": "#/components/schemas/AddressInput"
@@ -359,9 +357,9 @@
           "id": {
             "type": "string",
             "format": "uuid",
+            "description": "The unique identifier of the phone number entry.",
             "minLength": 36,
-            "maxLength": 36,
-            "description": "The unique identifier of the phone number, in UUID format."
+            "maxLength": 36
           },
           "number": {
             "type": "string",
@@ -372,10 +370,10 @@
           "type": {
             "type": "string",
             "enum": ["MOBILE", "HOME", "WORK", "OTHER"],
-            "minLength": 1,
-            "maxLength": 50,
-            "description": "The category of phone number.",
-            "example": "MOBILE"
+            "description": "The category of phone number, such as mobile, home, or work.",
+            "example": "MOBILE",
+            "minLength": 4,
+            "maxLength": 6
           },
           "isPrimary": {
             "type": "boolean",
@@ -397,10 +395,10 @@
           "type": {
             "type": "string",
             "enum": ["MOBILE", "HOME", "WORK", "OTHER"],
-            "minLength": 1,
-            "maxLength": 50,
-            "description": "The category of phone number.",
-            "example": "MOBILE"
+            "description": "The category of phone number, such as mobile, home, or work.",
+            "example": "MOBILE",
+            "minLength": 4,
+            "maxLength": 6
           },
           "isPrimary": {
             "type": "boolean",
@@ -415,15 +413,15 @@
           "id": {
             "type": "string",
             "format": "uuid",
+            "description": "The unique identifier of the address entry.",
             "minLength": 36,
-            "maxLength": 36,
-            "description": "The unique identifier of the address, in UUID format."
+            "maxLength": 36
           },
           "street": {
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "description": "The street address, including house or building number.",
+            "description": "The street address, including house number and street name.",
             "example": "123 Main Street"
           },
           "city": {
@@ -463,7 +461,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "description": "The street address, including house or building number.",
+            "description": "The street address, including house number and street name.",
             "example": "123 Main Street"
           },
           "city": {
@@ -501,27 +499,27 @@
         "properties": {
           "page": {
             "type": "integer",
+            "description": "The current page number.",
             "minimum": 1,
-            "maximum": 10000,
-            "description": "The current page number of the result set."
+            "maximum": 10000
           },
           "limit": {
             "type": "integer",
+            "description": "The number of items returned per page.",
             "minimum": 1,
-            "maximum": 100,
-            "description": "The maximum number of items returned per page."
+            "maximum": 100
           },
           "total": {
             "type": "integer",
+            "description": "The total number of contacts matching the query.",
             "minimum": 0,
-            "maximum": 2147483647,
-            "description": "The total number of items across all pages."
+            "maximum": 2147483647
           },
           "totalPages": {
             "type": "integer",
+            "description": "The total number of pages available.",
             "minimum": 0,
-            "maximum": 2147483647,
-            "description": "The total number of pages available."
+            "maximum": 2147483647
           }
         }
       },
@@ -535,32 +533,33 @@
             "properties": {
               "code": {
                 "type": "string",
+                "description": "A machine-readable error code.",
                 "minLength": 1,
-                "maxLength": 50,
-                "description": "A machine-readable error code identifying the type of error."
+                "maxLength": 50
               },
               "message": {
                 "type": "string",
+                "description": "A human-readable description of the error.",
                 "minLength": 1,
-                "maxLength": 1000,
-                "description": "A human-readable message describing the error."
+                "maxLength": 1000
               },
               "details": {
                 "type": "array",
+                "description": "A list of field-specific validation error details.",
                 "items": {
                   "type": "object",
                   "properties": {
                     "field": {
                       "type": "string",
+                      "description": "The name of the field that failed validation.",
                       "minLength": 1,
-                      "maxLength": 100,
-                      "description": "The name of the field that failed validation."
+                      "maxLength": 255
                     },
                     "message": {
                       "type": "string",
+                      "description": "A human-readable message describing the validation failure.",
                       "minLength": 1,
-                      "maxLength": 1000,
-                      "description": "A message describing why the field failed validation."
+                      "maxLength": 1000
                     }
                   }
                 }
@@ -578,9 +577,7 @@
         "description": "The unique identifier of the contact.",
         "schema": {
           "type": "string",
-          "format": "uuid",
-          "minLength": 36,
-          "maxLength": 36
+          "format": "uuid"
         }
       }
     },
@@ -596,7 +593,7 @@
         }
       },
       "NotFound": {
-        "description": "The requested contact could not be found.",
+        "description": "The requested resource could not be found.",
         "content": {
           "application/json": {
             "schema": {
@@ -606,7 +603,7 @@
         }
       },
       "ValidationError": {
-        "description": "The request body failed validation.",
+        "description": "The request failed validation.",
         "content": {
           "application/json": {
             "schema": {
